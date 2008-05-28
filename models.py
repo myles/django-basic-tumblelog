@@ -321,16 +321,21 @@ class Photo(models.Model):
 		SMALL_SIZE = (240, 240)
 		
 		if not self.photo_tumbnail:
-			self.save_photo_tumbnail_file(self.get_photo_filename(), '')
-			image = Image.open(self.get_photo_filename())
-			if image.mode not in ('L', 'RGB'):
-				image = image.convert('RGBA')
-			image.thumbnail(SMALL_SIZE, Image.ANTIALIAS)
-			image.save(self.get_photo_tumbnail_filename())
+			try:
+				self.save_photo_tumbnail_file(self.get_photo_filename(), '')
+				image = Image.open(self.get_photo_filename())
+				if image.mode not in ('L', 'RGB'):
+					image = image.convert('RGBA')
+				image.thumbnail(SMALL_SIZE, Image.ANTIALIAS)
+				image.save(self.get_photo_tumbnail_filename())
+			except IOError, e:
+				raise "There was an error converting the file: ", e
+		
+		save_as_item
 		
 		super(Photo, self).save()
 
-Photo.save = save_as_item
+# Photo.save = save_as_item
 Photo.delete = delete_as_item
 
 class Audio(models.Model):
