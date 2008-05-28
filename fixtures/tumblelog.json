@@ -1,0 +1,34 @@
+[
+	{
+		"model" : "tumblelog.link",
+		"pk" : "1",
+		"fields" : {
+			"title" : "Google",
+			"url" : "http://google.com/",
+			"via_title" : "reddit.com Google",
+			"via_url" : "http://reddit.com/info/24184/comments/",
+			"body" : "The <strong>Best</strong> <em>search engin</em> on the internet.",
+			"publish" : "2008-3-24"
+		}
+	},
+	{
+		"model" : "tumblelog.video",
+		"pk" : "1",
+		"fields" : {
+			"source" : "1",
+			"title" : "Car on Fire",
+			"url" : "http://youtube.com/watch?v=1j0KrR1s_vw",
+			"body" : "A short movie of a car on fire in a parking lot in North York.",
+			"publish" : "2008-3-24"
+		}
+	},
+	{
+		"model" : "tumblelog.chat",
+		"pk" : "1",
+		"fields" : {
+			"title" : "AIM",
+			"chat" : "John: Hello\nJane: Hello, how are you?\nJohn: Good\nJane: Thats the phone got to go, bye.\nJohn: Bye.",
+			"publish" : "2008-3-24"
+		}
+	}
+]

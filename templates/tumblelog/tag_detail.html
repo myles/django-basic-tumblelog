@@ -1,0 +1,21 @@
+{% extends "tumblelog/base_tumblelog.html" %}
+
+{% block title %}Tumblelog Items for {{ tag.name }}{% endblock %}
+{% block body_id %}tagged_tumblelog_items_list{% endblock %}
+
+{% block content_title %}
+	<h2>Tumblelog Items for {{ tag.name }}</h2>
+{% endblock %}
+
+{% block content %}
+	{% load tumblelog %}
+	<div class="item_list">
+		{% for item in object_list %}
+			<div>
+				<h3 class="title"><a href="{{ item.get_absolute_url }}">{{ item }}</a></h3>
+				<div class="post">{{ item|render_item|safe }}</div>
+				<p class="date">Posted {{ item.publish|date:"Y F d" }} at {{ item.publish|date:"P" }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

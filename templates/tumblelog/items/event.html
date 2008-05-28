@@ -1,0 +1,21 @@
+{% spaceless %}
+	<div class="vevent">
+		<table border="0">
+			<tr>
+				<th>Title</th>
+				<td class="summary">{{ item.title }}</td>
+			</tr>
+			<tr>
+				<th>Location</th>
+				<td>{{ item.location }}</td>
+			</tr>
+			<tr>
+				<th>When</th>
+				<td><abbr class="dtstart" title="{{ item.when|date:"Y-m-d\TH:i:sO" }}">{{ item.when }}</abbr></td>
+			</tr>
+		</table>
+		{% if item.body %}
+			<div class="body description">{{ item.body }}</div>
+		{% endif %}
+	</div>
+{% endspaceless %}

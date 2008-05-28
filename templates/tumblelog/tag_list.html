@@ -1,0 +1,19 @@
+{% extends "tumblelog/base_tumblelog.html" %}
+
+{% block title %}Tumblelog tags{% endblock %}
+{% block body_id %}category_list{% endblock %}
+
+{% block content_title %}
+	<h2>Tumblelog tags</h2>
+{% endblock %}
+
+
+{% block content %}
+	{% load markup tagging_tags %}
+	<ul class="tagcloud">
+		{% tag_cloud_for_model tumblelog.Item as item_tags with steps=9 distribution=log %}
+		{% for tag in item_tags %}
+			<li><a href="{% url tumblelog_tags_detail tag %}" style="font-size:1.{{ tag.font_size }}em;">{{ tag }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

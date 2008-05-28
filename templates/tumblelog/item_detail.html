@@ -1,0 +1,36 @@
+{% extends "tumblelog/base_tumblelog.html" %}
+{% load tumblelog %}
+
+{% block title %}{{ object }}{% endblock %}
+{% block body_id %}item_archive{% endblock %}
+
+{% block content_title %}
+	<h2 class="title"><a href="{{ object.get_absolute_url }}">{{ object }}</a></h2>
+	<p class="other_posts">
+		{% if object.get_previous_by_publish %}
+			<a class="previous" href="{{ object.get_previous_by_publish.get_absolute_url }}">&laquo; {{ object.get_previous_by_publish }}</a>
+		{% endif %}
+		{% if object.get_next_by_publish %}
+			| <a class="next" href="{{ object.get_next_by_publish.get_absolute_url }}">{{ object.get_next_by_publish }} &raquo;</a> 
+		{% endif %}
+	</p>
+{% endblock %}
+
+{% block content %}
+	{% load comments tagging_tags %}
+	<div class="item_list">
+		<div>
+			<div class="body">{{ object|render_item|safe }}</div>
+			<p class="date">Posted {{ object.publish|date:"Y F d" }} at {{ object.publish|date:"P" }}</p>
+			{% tags_for_object object as tag_list %}
+			{% if tag_list %}
+				<p class="tags">
+					<strong>Related tags:</strong>
+					{% for tag in tag_list %}
+						<a href="{% url tumblelog_tags_detail tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+					{% endfor %}
+				</p>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

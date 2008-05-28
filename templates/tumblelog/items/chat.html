@@ -1,0 +1,8 @@
+{% spaceless %}
+	{% load tumblelog %}
+	<ul class="chat">
+		{% for line in item.get_lines %}
+			<li>{{ line }}</li>
+		{% endfor %}
+	</ul>
+{% endspaceless %}

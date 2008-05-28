@@ -1,0 +1,6 @@
+{% spaceless %}
+	<a href="{{ item.get_photo_url }}" rel="lightbox" title="{{ item.title }}"><img src="{{ item.get_photo_tumbnail_url }}" alt="{{ item.title }}" /></a>
+	{% if item.body %}
+		<div class="body">{{ item.body }}</div>
+	{% endif %}
+{% endspaceless %}

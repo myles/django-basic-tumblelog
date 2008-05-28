@@ -1,0 +1,12 @@
+{% spaceless %}
+	{% load markup %}
+	<p>
+		<object width="400" height="318" data="{{ item.embed_url }}" type="application/x-shockwave-flash">
+			<param name="movie" value="{{ item.embed_url }}"></param>
+			<param name="wmode" value="transparent"></param>
+		</object>
+	</p>
+	{% if item.body %}
+		<div class="body">{{ item.body }}</div>
+	{% endif %}
+{% endspaceless %}

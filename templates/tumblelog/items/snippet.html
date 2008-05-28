@@ -1,0 +1,5 @@
+{% load tumblelog %}
+<div class="code">
+	{{ item.code|format_code:item.syntax|safe }}
+</div>
+<div class="body">{{ item.body }}</div>
