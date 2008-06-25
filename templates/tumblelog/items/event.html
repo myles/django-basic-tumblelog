@@ -5,10 +5,12 @@
 				<th>Title</th>
 				<td class="summary">{{ item.title }}</td>
 			</tr>
-			<tr>
-				<th>Location</th>
-				<td>{{ item.location }}</td>
-			</tr>
+			{% if item.location %}
+				<tr>
+					<th>Location</th>
+					<td>{{ item.location }}</td>
+				</tr>
+			{% endif %}
 			<tr>
 				<th>When</th>
 				<td><abbr class="dtstart" title="{{ item.when|date:"Y-m-d\TH:i:sO" }}">{{ item.when }}</abbr></td>
