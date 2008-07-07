@@ -2,15 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-07 14:27-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: <me@mylesbraithwaite.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,231 +18,231 @@ msgstr ""
 #: feeds.py:11 feeds.py:25
 #, python-format
 msgid "%s feed"
-msgstr ""
+msgstr "%s feed"
 
 #: feeds.py:12 feeds.py:26
 #, python-format
 msgid "%s posts feed."
-msgstr ""
+msgstr "%s posts feed."
 
 #: models.py:23 models.py:78 models.py:136 models.py:180 models.py:217
 #: models.py:255 models.py:293 models.py:349 models.py:384 models.py:440
 msgid "author"
-msgstr ""
+msgstr "Author"
 
 #: models.py:24 models.py:79 models.py:137 models.py:181 models.py:218
 #: models.py:256 models.py:294 models.py:350 models.py:385 models.py:441
 msgid "publish"
-msgstr ""
+msgstr "Publish"
 
 #: models.py:25 models.py:80 models.py:138 models.py:182 models.py:219
 #: models.py:257 models.py:295 models.py:351 models.py:386 models.py:442
 msgid "created"
-msgstr ""
+msgstr "Created"
 
 #: models.py:26 models.py:81 models.py:139 models.py:183 models.py:220
 #: models.py:258 models.py:296 models.py:352 models.py:387 models.py:443
 msgid "modified"
-msgstr ""
+msgstr "Modified"
 
 #: models.py:35
 msgid "item"
-msgstr ""
+msgstr "Item"
 
 #: models.py:36
 msgid "items"
-msgstr ""
+msgstr "Items"
 
 #: models.py:72 models.py:112 models.py:132 models.py:250 models.py:287
 #: models.py:345 models.py:435
 msgid "title"
-msgstr ""
+msgstr "Title"
 
 #: models.py:73
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: models.py:74
 msgid "Via Title"
-msgstr ""
+msgstr "Via Title"
 
 #: models.py:75
 msgid "Via URL"
-msgstr ""
+msgstr "Via URL"
 
 #: models.py:76 models.py:134 models.py:178 models.py:436
 msgid "body"
-msgstr ""
+msgstr "Body"
 
 #: models.py:76 models.py:134
 msgid "Use Textile."
-msgstr ""
+msgstr "Use Textile."
 
 #: models.py:86 models.py:291
 msgid "link"
-msgstr ""
+msgstr "Link"
 
 #: models.py:87
 msgid "links"
-msgstr ""
+msgstr "Links"
 
 #: models.py:113
 msgid "home"
-msgstr ""
+msgstr "Home"
 
 #: models.py:117
 msgid "video source"
-msgstr ""
+msgstr "Video Source"
 
 #: models.py:118
 msgid "video sources"
-msgstr ""
+msgstr "Video Sources"
 
 #: models.py:133
 msgid "url"
-msgstr ""
+msgstr "URL"
 
 #: models.py:144
 msgid "video"
-msgstr ""
+msgstr "Video"
 
 #: models.py:145
 msgid "videos"
-msgstr ""
+msgstr "Videos"
 
 #: models.py:188 models.py:189
 msgid "twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: models.py:214 models.py:251
 msgid "location"
-msgstr ""
+msgstr "Location"
 
 #: models.py:214
 msgid "IRC, AIM, Phone, etc."
-msgstr ""
+msgstr "IRC, AIM, Phone, etc."
 
 #: models.py:215 models.py:225
 msgid "chat"
-msgstr ""
+msgstr "Chat"
 
 #: models.py:226
 msgid "chats"
-msgstr ""
+msgstr "Chats"
 
 #: models.py:263
 msgid "event"
-msgstr ""
+msgstr "Event"
 
 #: models.py:264
 msgid "events"
-msgstr ""
+msgstr "Events"
 
 #: models.py:288 models.py:301
 msgid "photo"
-msgstr ""
+msgstr "Photo"
 
 #: models.py:289
 msgid "photo thumbnail"
-msgstr ""
+msgstr "Photo Thumbnail"
 
 #: models.py:290 models.py:347
 msgid "caption"
-msgstr ""
+msgstr "Caption"
 
 #: models.py:302
 msgid "photos"
-msgstr ""
+msgstr "Photos"
 
 #: models.py:346 models.py:357 models.py:358
 msgid "audio"
-msgstr ""
+msgstr "Audio"
 
 #: models.py:381 models.py:392
 msgid "quote"
-msgstr ""
+msgstr "Quote"
 
 #: models.py:382
 msgid "source"
-msgstr ""
+msgstr "Source"
 
 #: models.py:393
 msgid "quotes"
-msgstr ""
+msgstr "Quotes"
 
 #: models.py:437
 msgid "syntax"
-msgstr ""
+msgstr "Syntax"
 
 #: models.py:448
 msgid "snippet"
-msgstr ""
+msgstr "Snippet"
 
 #: models.py:449
 msgid "snippets"
-msgstr ""
+msgstr "Snippets"
 
 #: templates/tumblelog/item_detail.html:24
 #: templates/tumblelog/item_list.html:17
 #: templates/tumblelog/item_list_by_content.html:17
 #: templates/tumblelog/tag_detail.html:18
 msgid "Posted"
-msgstr ""
+msgstr "Posted"
 
 #: templates/tumblelog/item_detail.html:24
 #: templates/tumblelog/item_list.html:17
 #: templates/tumblelog/item_list_by_content.html:17
 #: templates/tumblelog/tag_detail.html:18
 msgid "at"
-msgstr ""
+msgstr "at"
 
 #: templates/tumblelog/item_detail.html:28
 msgid "Related tags:"
-msgstr ""
+msgstr "Related tags:"
 
 #: templates/tumblelog/item_list.html:4
 #: templates/tumblelog/item_list_by_content.html:4
 msgid "Tumblelog"
-msgstr ""
+msgstr "Tumblelog"
 
 #: templates/tumblelog/item_list.html:8
 msgid "Tumblelog archive"
-msgstr ""
+msgstr "Tumblelog archvie"
 
 #: templates/tumblelog/item_list.html:24
 #: templates/tumblelog/item_list_by_content.html:24
 msgid "Older"
-msgstr ""
+msgstr "Older"
 
 #: templates/tumblelog/item_list.html:28
 #: templates/tumblelog/item_list_by_content.html:28
 msgid "Newer"
-msgstr ""
+msgstr "Newer"
 
 #: templates/tumblelog/item_list_by_content.html:8
 msgid "archive"
-msgstr ""
+msgstr "Archive"
 
 #: templates/tumblelog/tag_detail.html:4 templates/tumblelog/tag_detail.html:8
 msgid "Tumblelog Items for"
-msgstr ""
+msgstr "Tumblelog Item for"
 
 #: templates/tumblelog/tag_list.html:3 templates/tumblelog/tag_list.html:7
 msgid "Tumblelog tags"
-msgstr ""
+msgstr "Tumblelog tags"
 
 #: templates/tumblelog/items/event.html:7
 msgid "Title"
-msgstr ""
+msgstr "Title"
 
 #: templates/tumblelog/items/event.html:12
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 #: templates/tumblelog/items/event.html:17
 msgid "When"
-msgstr ""
+msgstr "When"
 
 #: templates/tumblelog/items/link.html:5
 msgid "via"
-msgstr ""
+msgstr "via"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-07 14:28-0400\n"
+"POT-Creation-Date: 2008-07-07 14:35-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: <me@mylesbraithwaite.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 #: feeds.py:11 feeds.py:25
 #, python-format
 msgid "%s feed"
-msgstr ""
+msgstr "%s feed"
 
 #: feeds.py:12 feeds.py:26
 #, python-format
 msgid "%s posts feed."
-msgstr ""
+msgstr "Autor"
 
 #: models.py:23 models.py:78 models.py:136 models.py:180 models.py:217
 #: models.py:255 models.py:293 models.py:349 models.py:384 models.py:440
 msgid "author"
-msgstr ""
+msgstr "Autor"
 
 #: models.py:24 models.py:79 models.py:137 models.py:181 models.py:218
 #: models.py:256 models.py:294 models.py:350 models.py:385 models.py:441
@@ -60,7 +60,7 @@ msgstr ""
 
 #: models.py:73
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: models.py:74
 msgid "Via Title"
