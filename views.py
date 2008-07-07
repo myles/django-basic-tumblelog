@@ -13,6 +13,7 @@ def item_list(request, page=0):
 		paginate_by = 10,
 		page = page,
 	)
+item_list.__doc__ = list_detail.object_list.__doc__
 
 def item_detail(request, item_id):
 	return list_detail.object_detail(
@@ -21,6 +22,7 @@ def item_detail(request, item_id):
 		object_id = item_id,
 		template_name = 'tumblelog/item_detail.html',
 	)
+item_detail.__doc__ = list_detail.object_detail.__doc__
 
 def item_list_by_content(request, slug):
 	try:
@@ -36,6 +38,7 @@ def item_list_by_content(request, slug):
 		template_name = 'tumblelog/item_list_by_content.html',
 		extra_context = { 'content_type' : content_type },
 	)
+item_list_by_content.__doc__ = list_detail.object_list.__doc__
 
 def tags(request, tag):
 	return tagged_object_list(
@@ -44,3 +47,4 @@ def tags(request, tag):
 		tag = tag,
 		template_name = 'tumblelog/tag_detail.html',
 	)
+tags.__doc__ = tagged_object_list.__doc__
