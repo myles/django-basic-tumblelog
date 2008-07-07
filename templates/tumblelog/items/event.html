@@ -1,18 +1,20 @@
+{% load i18n %}
+
 {% spaceless %}
 	<div class="vevent">
 		<table border="0">
 			<tr>
-				<th>Title</th>
+				<th>{% trans "Title" %}</th>
 				<td class="summary">{{ item.title }}</td>
 			</tr>
 			{% if item.location %}
 				<tr>
-					<th>Location</th>
+					<th>{% trans "Location" %}</th>
 					<td>{{ item.location }}</td>
 				</tr>
 			{% endif %}
 			<tr>
-				<th>When</th>
+				<th>{% trans "When" %}</th>
 				<td><abbr class="dtstart" title="{{ item.when|date:"Y-m-d\TH:i:sO" }}">{{ item.when }}</abbr></td>
 			</tr>
 		</table>

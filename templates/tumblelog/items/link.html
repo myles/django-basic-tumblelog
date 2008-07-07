@@ -1,5 +1,7 @@
+{% load i18n %}
+
 {% spaceless %}
 	<div>
-		<p><a href="{{ item.url|escape }}" class="link">{{ item.title }}</a>{% if item.via_url %}&nbsp;(<a class="via" href="{{ item.via_url|escape }}"{% if item.via_title %} title="{{ item.via_title|escape }}"{% endif %}>via</a>){% endif %}{% if item.body %}&nbsp;<span class="body">{{ item.body }}</span>{% endif %}</p>
+		<p><a href="{{ item.url|escape }}" class="link">{{ item.title }}</a>{% if item.via_url %}&nbsp;(<a class="via" href="{{ item.via_url|escape }}"{% if item.via_title %} title="{{ item.via_title|escape }}"{% endif %}>{% trans "via" %}</a>){% endif %}{% if item.body %}&nbsp;<span class="body">{{ item.body }}</span>{% endif %}</p>
 	</div>
 {% endspaceless %}

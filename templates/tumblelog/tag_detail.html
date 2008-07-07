@@ -1,10 +1,11 @@
 {% extends "tumblelog/base_tumblelog.html" %}
+{% load tumblelog i18n %}
 
-{% block title %}Tumblelog Items for {{ tag.name }}{% endblock %}
+{% block title %}{% trans "Tumblelog Items for" %} {{ tag.name }}{% endblock %}
 {% block body_id %}tagged_tumblelog_items_list{% endblock %}
 
 {% block content_title %}
-	<h2>Tumblelog Items for {{ tag.name }}</h2>
+	<h2>{% trans "Tumblelog Items for" %} {{ tag.name }}</h2>
 {% endblock %}
 
 {% block content %}
@@ -14,7 +15,7 @@
 			<div>
 				<h3 class="title"><a href="{{ item.get_absolute_url }}">{{ item }}</a></h3>
 				<div class="post">{{ item|render_item|safe }}</div>
-				<p class="date">Posted {{ item.publish|date:"Y F d" }} at {{ item.publish|date:"P" }}</p>
+				<p class="date">{% trans "Posted" %} {{ item.publish|date:"Y F d" }} {% trans "at" %} {{ item.publish|date:"P" }}</p>
 			</div>
 		{% endfor %}
 	</div>

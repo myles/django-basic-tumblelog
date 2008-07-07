@@ -20,7 +20,7 @@ class Item(models.Model):
 	object_id		= models.PositiveIntegerField()
 	content_object	= generic.GenericForeignKey()
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -32,11 +32,11 @@ class Item(models.Model):
 		pass
 	
 	class Meta:
-		verbose_name = _('item')
-		verbose_name_plural = _('items')
-		db_table = 'tumblelog_items'
-		ordering = ('-publish',)
-		get_latest_by = 'publish'
+		verbose_name		= _('item')
+		verbose_name_plural	= _('items')
+		db_table			= 'tumblelog_items'
+		ordering			= ('-publish',)
+		get_latest_by		= 'publish'
 	
 	def __unicode__(self):
 		return u"%s" % self.content_object.title
@@ -75,7 +75,7 @@ class Link(models.Model):
 	via_url			= models.URLField(null=True, blank=True, verbose_name=_('Via URL'))
 	body			= models.TextField(_('body'), null=True, blank=True, help_text=_('Use Textile.'))
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -133,7 +133,7 @@ class Video(models.Model):
 	url				= models.URLField(_('url'))
 	body			= models.TextField(_('body'), null=True, blank=True, help_text=_('Use Textile.'))
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -177,7 +177,7 @@ class Twitter(models.Model):
 	"""
 	body			= models.CharField(_('body'), max_length=140, help_text="The first five words will be used a the title. Also HTML is okay.")
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -214,7 +214,7 @@ class Chat(models.Model):
 	title			= models.CharField(_('location'), max_length=50, null=True, blank=True, help_text=_('IRC, AIM, Phone, etc.'))
 	chat			= models.TextField(_('chat'), null=False, blank=False)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -252,7 +252,7 @@ class Event(models.Model):
 	when			= models.DateTimeField()
 	body			= models.TextField(null=True, blank=True)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -290,7 +290,7 @@ class Photo(models.Model):
 	body			= models.TextField(_('caption'), null=True, blank=True)
 	link			= models.URLField(_('link'), null=True, blank=True)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -346,7 +346,7 @@ class Audio(models.Model):
 	audio			= models.FileField(_('audio'), upload_to='uploads/tumblelog/audio', blank=True, null=True)
 	body			= models.TextField(_('caption'), null=True, blank=True)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -381,7 +381,7 @@ class Quote(models.Model):
 	quote			= models.TextField(_('quote'))
 	body			= models.TextField(_('source'), null=True, blank=True)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
@@ -437,7 +437,7 @@ class Snippet(models.Model):
 	syntax			= models.CharField(_('syntax'), max_length=20, null=False, blank=False, choices=LANGUAGES, default='text')
 	code			= models.TextField(null=False, blank=False)
 	
-	author			= models.ForeignKey(User, blank=True, null=True)
+	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
