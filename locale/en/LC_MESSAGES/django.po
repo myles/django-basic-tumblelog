@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-07 14:27-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: feeds.py:11 feeds.py:25
+#, python-format
+msgid "%s feed"
+msgstr ""
+
+#: feeds.py:12 feeds.py:26
+#, python-format
+msgid "%s posts feed."
+msgstr ""
+
+#: models.py:23 models.py:78 models.py:136 models.py:180 models.py:217
+#: models.py:255 models.py:293 models.py:349 models.py:384 models.py:440
+msgid "author"
+msgstr ""
+
+#: models.py:24 models.py:79 models.py:137 models.py:181 models.py:218
+#: models.py:256 models.py:294 models.py:350 models.py:385 models.py:441
+msgid "publish"
+msgstr ""
+
+#: models.py:25 models.py:80 models.py:138 models.py:182 models.py:219
+#: models.py:257 models.py:295 models.py:351 models.py:386 models.py:442
+msgid "created"
+msgstr ""
+
+#: models.py:26 models.py:81 models.py:139 models.py:183 models.py:220
+#: models.py:258 models.py:296 models.py:352 models.py:387 models.py:443
+msgid "modified"
+msgstr ""
+
+#: models.py:35
+msgid "item"
+msgstr ""
+
+#: models.py:36
+msgid "items"
+msgstr ""
+
+#: models.py:72 models.py:112 models.py:132 models.py:250 models.py:287
+#: models.py:345 models.py:435
+msgid "title"
+msgstr ""
+
+#: models.py:73
+msgid "URL"
+msgstr ""
+
+#: models.py:74
+msgid "Via Title"
+msgstr ""
+
+#: models.py:75
+msgid "Via URL"
+msgstr ""
+
+#: models.py:76 models.py:134 models.py:178 models.py:436
+msgid "body"
+msgstr ""
+
+#: models.py:76 models.py:134
+msgid "Use Textile."
+msgstr ""
+
+#: models.py:86 models.py:291
+msgid "link"
+msgstr ""
+
+#: models.py:87
+msgid "links"
+msgstr ""
+
+#: models.py:113
+msgid "home"
+msgstr ""
+
+#: models.py:117
+msgid "video source"
+msgstr ""
+
+#: models.py:118
+msgid "video sources"
+msgstr ""
+
+#: models.py:133
+msgid "url"
+msgstr ""
+
+#: models.py:144
+msgid "video"
+msgstr ""
+
+#: models.py:145
+msgid "videos"
+msgstr ""
+
+#: models.py:188 models.py:189
+msgid "twitter"
+msgstr ""
+
+#: models.py:214 models.py:251
+msgid "location"
+msgstr ""
+
+#: models.py:214
+msgid "IRC, AIM, Phone, etc."
+msgstr ""
+
+#: models.py:215 models.py:225
+msgid "chat"
+msgstr ""
+
+#: models.py:226
+msgid "chats"
+msgstr ""
+
+#: models.py:263
+msgid "event"
+msgstr ""
+
+#: models.py:264
+msgid "events"
+msgstr ""
+
+#: models.py:288 models.py:301
+msgid "photo"
+msgstr ""
+
+#: models.py:289
+msgid "photo thumbnail"
+msgstr ""
+
+#: models.py:290 models.py:347
+msgid "caption"
+msgstr ""
+
+#: models.py:302
+msgid "photos"
+msgstr ""
+
+#: models.py:346 models.py:357 models.py:358
+msgid "audio"
+msgstr ""
+
+#: models.py:381 models.py:392
+msgid "quote"
+msgstr ""
+
+#: models.py:382
+msgid "source"
+msgstr ""
+
+#: models.py:393
+msgid "quotes"
+msgstr ""
+
+#: models.py:437
+msgid "syntax"
+msgstr ""
+
+#: models.py:448
+msgid "snippet"
+msgstr ""
+
+#: models.py:449
+msgid "snippets"
+msgstr ""
+
+#: templates/tumblelog/item_detail.html:24
+#: templates/tumblelog/item_list.html:17
+#: templates/tumblelog/item_list_by_content.html:17
+#: templates/tumblelog/tag_detail.html:18
+msgid "Posted"
+msgstr ""
+
+#: templates/tumblelog/item_detail.html:24
+#: templates/tumblelog/item_list.html:17
+#: templates/tumblelog/item_list_by_content.html:17
+#: templates/tumblelog/tag_detail.html:18
+msgid "at"
+msgstr ""
+
+#: templates/tumblelog/item_detail.html:28
+msgid "Related tags:"
+msgstr ""
+
+#: templates/tumblelog/item_list.html:4
+#: templates/tumblelog/item_list_by_content.html:4
+msgid "Tumblelog"
+msgstr ""
+
+#: templates/tumblelog/item_list.html:8
+msgid "Tumblelog archive"
+msgstr ""
+
+#: templates/tumblelog/item_list.html:24
+#: templates/tumblelog/item_list_by_content.html:24
+msgid "Older"
+msgstr ""
+
+#: templates/tumblelog/item_list.html:28
+#: templates/tumblelog/item_list_by_content.html:28
+msgid "Newer"
+msgstr ""
+
+#: templates/tumblelog/item_list_by_content.html:8
+msgid "archive"
+msgstr ""
+
+#: templates/tumblelog/tag_detail.html:4 templates/tumblelog/tag_detail.html:8
+msgid "Tumblelog Items for"
+msgstr ""
+
+#: templates/tumblelog/tag_list.html:3 templates/tumblelog/tag_list.html:7
+msgid "Tumblelog tags"
+msgstr ""
+
+#: templates/tumblelog/items/event.html:7
+msgid "Title"
+msgstr ""
+
+#: templates/tumblelog/items/event.html:12
+msgid "Location"
+msgstr ""
+
+#: templates/tumblelog/items/event.html:17
+msgid "When"
+msgstr ""
+
+#: templates/tumblelog/items/link.html:5
+msgid "via"
+msgstr ""
