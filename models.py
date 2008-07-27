@@ -28,9 +28,6 @@ class Item(models.Model):
 	tags			= TagField()
 	objects			= ItemManager()
 	
-	class Admin:
-		pass
-	
 	class Meta:
 		verbose_name		= _('item')
 		verbose_name_plural	= _('items')
@@ -53,6 +50,7 @@ def save_as_item(self):
 	try:
 		content_type = ContentType.objects.get_for_model(self)
 		Item.objects.get(content_type__pk=content_type.id, object_id=self.id)
+		# TODO Get this working on an update.
 	except Item.DoesNotExist:
 		Item.objects.create(content_object=self, author=self.author, publish=self.publish, tags=self.tags)
 
@@ -89,10 +87,6 @@ class Link(models.Model):
 		get_latest_by = 'publish'
 		db_table = 'tumblelog_link'
 	
-	class Admin:
-		list_display = ('title', 'url', 'author', 'publish')
-		list_filter = ('publish', 'author')
-	
 	def __unicode__(self):
 		return u"%s" % self.title
 	
@@ -117,9 +111,6 @@ class VideoSource(models.Model):
 		verbose_name = _('video source')
 		verbose_name_plural = _('video sources')
 		db_table = 'tumblelog_video_source'
-	
-	class Admin:
-		list_display = ('title',)
 	
 	def __unicode__(self):
 		return u"%s" % self.title
@@ -146,10 +137,6 @@ class Video(models.Model):
 		ordering = ('-publish',)
 		get_latest_by = 'publish'
 		db_table = 'tumblelog_video'
-	
-	class Admin:
-		list_display = ('title', 'author', 'publish')
-		list_filter = ('publish', 'author', 'source')
 	
 	def __unicode__(self):
 		return u"%s" % self.title
@@ -191,10 +178,6 @@ class Twitter(models.Model):
 		get_latest_by = 'publish'
 		db_table = 'tumblelog_twitter'
 	
-	class Admin:
-		list_display = ('title', 'author', 'publish')
-		list_filter = ('publish', 'author')
-	
 	@property
 	def title(self):
 		return truncatewords_html(self.body, "5")
@@ -227,10 +210,6 @@ class Chat(models.Model):
 		ordering = ('-publish',)
 		get_latest_by = 'publish'
 		db_table = 'tumblelog_chat'
-	
-	class Admin:
-		list_display = ('title', 'author', 'publish')
-		list_filter = ('publish', 'author')
 	
 	def __unicode__(self):
 		return u"%s" % self.title
@@ -265,10 +244,6 @@ class Event(models.Model):
 		ordering = ("-publish",)
 		get_latest_by = 'publish'
 	
-	class Admin:
-		list_display = ('title', 'author', 'publish',)
-		list_filter = ('publish', 'author')
-	
 	def __unicode__(self):
 		return u"%s" % self.title
 	
@@ -302,10 +277,6 @@ class Photo(models.Model):
 		verbose_name_plural = _('photos')
 		ordering = ("-publish",)
 		get_latest_by = 'publish'
-	
-	class Admin:
-		list_display = ('title', 'author', 'publish',)
-		list_filter = ('publish', 'author',)
 	
 	def __unicode__(self):
 		return u"%s" % self.title
@@ -359,10 +330,6 @@ class Audio(models.Model):
 		ordering = ('-publish',)
 		get_latest_by = 'publish'
 	
-	class Admin:
-		list_display = ('title', 'author', 'publish')
-		list_filter = ('publish', 'author',)
-	
 	def __unicode__(self):
 		return u"%s" % self.title
 	
@@ -393,10 +360,6 @@ class Quote(models.Model):
 		verbose_name_plural = _('quotes')
 		ordering = ('-publish',)
 		get_latest_by = 'publish'
-	
-	class Admin:
-		list_display = ('title', 'author', 'publish')
-		list_filter = ('publish', 'author')
 	
 	def __unicode__(self):
 		return u"%s" % self.title
@@ -449,10 +412,6 @@ class Snippet(models.Model):
 		verbose_name_plural = _('snippets')
 		ordering = ('-publish',)
 		get_latest_by = 'publish'
-	
-	class Admin:
-		list_display = ('title', 'syntax', 'author', 'publish')
-		list_filter = ('publish', 'author')
 	
 	def __unicode__(self):
 		return u"%s: %s" % (self.syntax, self.title)
