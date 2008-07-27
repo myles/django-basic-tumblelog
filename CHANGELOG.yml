@@ -1,0 +1,3 @@
+changes:
+    date: 2008-07-27
+        change: Moved the administration interface to admin.py from models.py.
