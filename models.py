@@ -45,24 +45,6 @@ class Item(models.Model):
 			'item_id'		: self.id,
 		})
 
-def save_as_item(self):
-	super(self.__class__, self).save()
-	try:
-		content_type = ContentType.objects.get_for_model(self)
-		Item.objects.get(content_type__pk=content_type.id, object_id=self.id)
-		# TODO Get this working on an update.
-	except Item.DoesNotExist:
-		Item.objects.create(content_object=self, author=self.author, publish=self.publish, tags=self.tags)
-
-def delete_as_item(self):
-	try:
-		content_type = ContentType.objects.get_for_model(self)
-		item = Item.objects.get(content_type__pk=content_type.id, object_id=self.id)
-		item.delete()
-	except Item.DoesNotExist:
-		pass
-	super(self.__class__, self).delete()
-
 class Link(models.Model):
 	"""
 	A link, with an optional commentary.
@@ -94,9 +76,6 @@ class Link(models.Model):
 		ctype = ContentType.objects.get(model='link', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Link.save = save_as_item
-Link.delete = delete_as_item
 
 class VideoSource(models.Model):
 	"""
@@ -155,9 +134,6 @@ class Video(models.Model):
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
 
-Video.save = save_as_item
-Video.delete = delete_as_item
-
 class Twitter(models.Model):
 	"""
 	A twit post.
@@ -186,9 +162,6 @@ class Twitter(models.Model):
 		ctype = ContentType.objects.get(model='twitter', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Twitter.save = save_as_item
-Twitter.delete = delete_as_item
 
 class Chat(models.Model):
 	"""
@@ -222,9 +195,6 @@ class Chat(models.Model):
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
 
-Chat.save = save_as_item
-Chat.delete = delete_as_item
-
 class Event(models.Model):
 	title			= models.CharField(_('title'), max_length=200)
 	location		= models.TextField(_('location'), blank=True, null=True)
@@ -251,9 +221,6 @@ class Event(models.Model):
 		ctype = ContentType.objects.get(model='event', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Event.save = save_as_item
-Event.delete = delete_as_item
 
 class Photo(models.Model):
 	"""
@@ -306,9 +273,6 @@ class Photo(models.Model):
 		
 		super(Photo, self).save()
 
-# Photo.save = save_as_item
-Photo.delete = delete_as_item
-
 class Audio(models.Model):
 	"""
 	Audio model
@@ -337,9 +301,6 @@ class Audio(models.Model):
 		ctype = ContentType.objects.get(model='audio', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Audio.save = save_as_item
-Audio.delete = delete_as_item
 
 class Quote(models.Model):
 	"""
@@ -372,9 +333,6 @@ class Quote(models.Model):
 		ctype = ContentType.objects.get(model='quote', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Quote.save = save_as_item
-Quote.delete = delete_as_item
 
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
@@ -420,6 +378,3 @@ class Snippet(models.Model):
 		ctype = ContentType.objects.get(model='snippet', app_label='tumblelog')
 		item = Item.objects.get(object_id=self.id, content_type=ctype)
 		return item.get_absolute_url()
-
-Snippet.save = save_as_item
-Snippet.delete = delete_as_item
