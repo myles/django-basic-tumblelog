@@ -1,4 +1,4 @@
 *.pyc
 *.mo
 build/
-
+docs/_build/**
