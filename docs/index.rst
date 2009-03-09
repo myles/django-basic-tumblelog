@@ -2,13 +2,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Django Basic Tumblelog's documentation!
-==================================================
+Django Basic Tumblelog
+======================
 
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+	:maxdepth: 2
+	
+	tutorials/index
 
 Indices and tables
 ==================

@@ -44,7 +44,7 @@ copyright = '2009, Myles Braithwaite'
 # The short X.Y version.
 version = '0.5'
 # The full version, including alpha/beta/rc tags.
-release = '0.5'
+release = '0.5 beta'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -142,7 +142,7 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DjangoBasicTumblelogdoc'
+htmlhelp_basename = 'django_basic_tumblelog_doc'
 
 
 # Options for LaTeX output
@@ -157,7 +157,7 @@ htmlhelp_basename = 'DjangoBasicTumblelogdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
-  ('index', 'DjangoBasicTumblelog.tex', 'Django Basic Tumblelog Documentation',
+  ('index', 'django_basic_tumblelog.tex', 'Django Basic Tumblelog Documentation',
    'Myles Braithwaite', 'manual'),
 ]
 
