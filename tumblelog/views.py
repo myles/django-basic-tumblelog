@@ -39,12 +39,3 @@ def item_list_by_content(request, slug):
 		extra_context = { 'content_type' : content_type },
 	)
 item_list_by_content.__doc__ = list_detail.object_list.__doc__
-
-def tags(request, tag):
-	return tagged_object_list(
-		request,
-		model = Item,
-		tag = tag,
-		template_name = 'tumblelog/tag_detail.html',
-	)
-tags.__doc__ = tagged_object_list.__doc__

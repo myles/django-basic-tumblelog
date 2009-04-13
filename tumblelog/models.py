@@ -5,9 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
-from tagging.fields import TagField
-import tagging
-
 from tumblelog.managers import *
 
 class Item(models.Model):
@@ -21,7 +18,6 @@ class Item(models.Model):
 	created			= models.DateTimeField(_('created'), auto_now_add=True)
 	modified		= models.DateTimeField(_('modified'), auto_now=True)
 	
-	tags			= TagField()
 	objects			= ItemManager()
 	
 	class Meta:

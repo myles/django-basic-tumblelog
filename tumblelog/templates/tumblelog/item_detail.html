@@ -17,20 +17,10 @@
 {% endblock %}
 
 {% block content %}
-	{% load tagging_tags %}
 	<div class="item_list">
 		<div>
 			<div class="body">{{ object|render_item|safe }}</div>
 			<p class="date">{% trans "Posted" %} {{ object.publish|date:"Y F d" }} {% trans "at" %} {{ object.publish|date:"P" }}</p>
-			{% tags_for_object object as tag_list %}
-			{% if tag_list %}
-				<p class="tags">
-					<strong>{% trans "Related tags:" %}</strong>
-					{% for tag in tag_list %}
-						<a href="{% url tumblelog_tags_detail tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
-					{% endfor %}
-				</p>
-			{% endif %}
 		</div>
 	</div>
 {% endblock %}

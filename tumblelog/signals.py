@@ -5,12 +5,11 @@ def add_tumblelog_signal(sender, instance, **kwargs):
 	try:
 		ctype = ContentType.objects.get_for_model(instance)
 		item = Item.objects.get(content_type=ctype, object_id=instance.id)
-		item.tags = instance.tags
 		item.author = instance.author
 		item.publish = instance.publish
 		item.save()
 	except Item.DoesNotExist:
-		item = Item.objects.create(content_object=instance, author=instance.author, publish=instance.publish, tags=instance.tags)
+		item = Item.objects.create(content_object=instance, author=instance.author, publish=instance.publish)
 
 def delete_tumblelog_signal(sender, instance, **kwargs):
 	ctype = ContentType.objects.get_for_model(instance)
