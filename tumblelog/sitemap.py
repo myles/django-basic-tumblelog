@@ -1,13 +1,13 @@
 from django.contrib.sitemaps import Sitemap
 
-from tumblelog.models import Item
+from tumblelog.models import Post
 
 class TumblelogSitemap(Sitemap):
 	changefreq = "never"
 	priority = 0.5
 	
 	def items(self):
-		return Item.objects.all()
+		return Post.objects.all()
 	
 	def lastmod(self, obj):
 		return obj.publish

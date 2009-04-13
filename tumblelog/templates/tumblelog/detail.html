@@ -1,0 +1,12 @@
+{% extends "tumblelog/base_tumblelog.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}: {{ post }}{% endblock %}
+
+{% block content_title %}
+	<h2>{{ post }}</h2>
+{% endblock %}
+
+{% block content %}
+	{% include "tumblelog/_post.html" %}
+{% endblock %}

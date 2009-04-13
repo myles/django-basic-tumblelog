@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 
-from tumblelog.models import Item
+from tumblelog.models import Post
 
 class TumblelogItemFeed(Feed):
 	_site = Site.objects.get_current()
@@ -15,25 +15,7 @@ class TumblelogItemFeed(Feed):
 		return reverse('tumblelog_index')
 	
 	def items(self):
-		return Item.objects.all()[:10]
+		return Post.objects.all()[:20]
 	
 	def item_pubdate(self, item):
 		return item.publish
-
-class TumblelogByContent(Feed):
-	_site = Site.objects.get_current()
-	title = _("%s feed") % _site.name
-	description = _('%s posts feed.') % _site.name
-	
-	def get_objects(self, bits):
-		if len(bits) != 1:
-			raise ObjectDoesNotExist
-		
-		return ContentType.objects.get(model__iexact=bits[-1], app_label__iexact='tumblelog')
-	
-	def items(self, obj):
-		content_type = ContentType.objects.get(model__iexact=obj.slug, app_label__iexact='tumblelog')
-		return content_type.item_set.all()
-	
-	def link(self, obj):
-		return obj.get_absolute_url()

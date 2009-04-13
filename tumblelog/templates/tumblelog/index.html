@@ -1,0 +1,26 @@
+{% extends "tumblelog/base_tumblelog.html" %}
+{% load i18n %}
+
+{% block title %}{{ block.super }}{% endblock %}
+
+{% block content_title %}
+	<h2>{% trans "Tumblelog" %}</h2>
+{% endblock %}
+
+{% block content %}
+	<div id="tumblelog_posts">
+	{% for post in posts.object_list %}
+		{% include "tumblelog/_post.html" %}
+	{% endfor %}
+	</div>
+	
+	{% if posts.has_other_pages %}
+	<div id="pagination">
+		<p>
+			{% if has_previous %}<a href="{% url tumblelog_index_paginated previous_page_number %}" title="{% trans "Page" %} {{ previous_page_number }}">{% trans "Previous" %}</a>{% endif %}
+			{% if has_previous and has_next %}-{% endif %}
+			{% if has_next %}<a href="{% url tumblelog_index_paginated next_page_number %}" title="{% trans "Page" %} {{ next_page_number }}">{% trans "Next" %}</a>{% endif %}
+		</p>
+	</div>
+	{% endif %}
+{% endblock %}

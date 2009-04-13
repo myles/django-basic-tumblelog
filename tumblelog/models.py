@@ -5,34 +5,34 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
-from tumblelog.managers import *
+from tumblelog.managers import PostManager
 
-class Item(models.Model):
+class Post(models.Model):
 	""" Item model """
-	content_type	= models.ForeignKey(ContentType)
-	object_id		= models.PositiveIntegerField()
-	content_object	= generic.GenericForeignKey()
+	content_type = models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	content_object = generic.GenericForeignKey()
 	
-	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
-	publish			= models.DateTimeField(_('publish'))
-	created			= models.DateTimeField(_('created'), auto_now_add=True)
-	modified		= models.DateTimeField(_('modified'), auto_now=True)
+	title = models.CharField(_('title'), max_length=200)
+	author = models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
+	publish = models.DateTimeField(_('publish'))
+	created = models.DateTimeField(_('created'), auto_now_add=True)
+	modified = models.DateTimeField(_('modified'), auto_now=True)
 	
-	objects			= ItemManager()
+	objects = PostManager()
 	
 	class Meta:
-		verbose_name		= _('item')
-		verbose_name_plural	= _('items')
-		db_table			= 'tumblelog_items'
-		ordering			= ('-publish',)
-		get_latest_by		= 'publish'
+		verbose_name = _('post')
+		verbose_name_plural = _('posts')
+		db_table = 'tumblelog'
+		ordering = ('-publish',)
+		get_latest_by = 'publish'
 	
 	def __unicode__(self):
-		return u"%s" % self.content_object.title
+		return u"%s" % self.title
 	
 	@permalink
 	def get_absolute_url(self):
-		return ('tumblelog_item_detail', None, {
-			'content_type'	: self.content_type,
-			'item_id'		: self.id,
+		return ('tumblelog_detail', None, {
+			'obj_pk' : self.pk,
 		})
