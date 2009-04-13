@@ -138,7 +138,7 @@ class Twitter(models.Model):
 	"""
 	A twit post.
 	"""
-	body			= models.CharField(_('body'), max_length=140, help_text="The first five words will be used a the title. Also HTML is okay.")
+	body			= models.CharField(_('body'), max_length=140, help_text="The first five words will be used as the title. Also HTML is okay.")
 	
 	author			= models.ForeignKey(User, blank=True, null=True, verbose_name=_('author'))
 	publish			= models.DateTimeField(_('publish'))
