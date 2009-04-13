@@ -4,7 +4,7 @@ from django.http import Http404
 from django.views.generic import list_detail, date_based
 from django.contrib.contenttypes.models import ContentType
 
-from tumblelog.models import Item, Event
+from tumblelog.models import Item
 
 def item_list(request, page=0):
 	return list_detail.object_list(
