@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 		view	= 'tumblelog.views.item_detail',
 		name	= 'tumblelog_item_detail',
 	),
+		
 	url(r'^page/(?P<page>\w)/$',
 		view 	= 'tumblelog.views.item_list',
 		name 	= 'tumblelog_index_paginated',
