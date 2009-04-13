@@ -10,7 +10,6 @@ Blog
 
 ::
 
-	import datetime
 	from django.db.models.signals import post_save, post_delete
 	
 	from basic.blog.models import Post
