@@ -1,8 +1,10 @@
-import datetime
+import datetime, logging
 
 from django.contrib.contenttypes.models import ContentType
 
 from tumblelog.models import Post
+
+logger = logging.getLogger("tumblelog.signals")
 
 def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None **kwargs):
 	ctype = ContentType.objects.get_for_model(instance)

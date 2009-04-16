@@ -36,10 +36,6 @@ def detail(request, post_pk, context={}, template_name='tumblelog/detail.html'):
 	"""
 	The Tumblelog Post detail page.
 	
-	response_type
-		The type of response you will want back.
-		Current support for HTML and JSON.
-	
 	context
 		Any extra context you wish to add to this page.
 	
@@ -53,6 +49,36 @@ def detail(request, post_pk, context={}, template_name='tumblelog/detail.html'):
 	
 	context.update({
 		'post': post,
+	})
+	
+	return render_to_response(template_name, context, context_instance=RequestContext(request))
+
+def archive(request, year=str(datetime.date.today().year),
+	month=datetime.date.today().strftime('%b'), context={},
+	template_name='tumblelog/archive.html'):
+	"""
+	The Tumblelog Post archive page.
+	
+	year and month
+		The year and month you want to filter.
+	
+	context
+		Any extra context you wish to add to this page.
+	
+	template_name
+		If you want to add a custom template to this page.
+	"""
+	try:
+		date = datetime.date(*time.strptime(year+month, '%Y%b')[:3])
+	except ValueError:
+		raise Http404
+	
+	posts = Post.objects.filter(publish__month=date.month,
+		publish__year=date.year)
+	
+	context.update({
+		'posts': posts,
+		'date': date,
 	})
 	
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
