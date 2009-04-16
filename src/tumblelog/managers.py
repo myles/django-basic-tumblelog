@@ -23,7 +23,7 @@ class PostManager(Manager):
 	Managers for the Tumblelog Post model
 	"""
 	def __init__(self):
-		super(TumblelogManager, self).__init__()
+		super(PostManager, self).__init__()
 		self.models_by_name = {}
 	
 	def publisehd(self):
