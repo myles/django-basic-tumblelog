@@ -19,29 +19,28 @@ import datetime
 from django.db.models import Manager
 
 class PostManager(Manager):
-	"""
-	Managers for the Tumblelog Post model
+	"""Managers for the Tumblelog Post model
 	"""
 	def __init__(self):
 		super(PostManager, self).__init__()
 		self.models_by_name = {}
 	
-	def publisehd(self):
+	def published(self):
+		"""Retrun a QuerySet of published entries.
+		"""
 		return self.get_query_set().filter(
 			published__lte=datetime.datetime.now()
 		)
 	
 	def get_for_model(self, model):
-		"""
-		Return a QuerySet of only items of a certain type.
+		"""Return a QuerySet of only items of a certain type.
 		"""
 		return self.filter(
 			content_type=ContentType.objects.get_for_model(model)
 		)
 	
 	def get_last_update_of_model(self, model, **kwargs):
-		"""
-		Return the last time a given model's items were updated. Returns the
+		"""Return the last time a given model's items were updated. Returns the
 		epoch if the items were never updated.
 		"""
 		qs = self.get_for_model(model)
