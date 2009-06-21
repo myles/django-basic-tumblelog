@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from datetime, time
+import datetime, time
 
 from django.http import Http404
 from django.template import RequestContext
