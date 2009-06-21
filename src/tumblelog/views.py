@@ -28,12 +28,13 @@ def index(request, page=1, context={}, template_name='tumblelog/index.html'):
 	"""
 	The Tumblelog index page.
 	
-	context
-		Any extra context you wish to add to this page.
-	
-	template_name
-		If you want to add a custom template to this page.
+	:type page: int
+	:param context: Any extra context you wish to add to this page.
+	:type context: dict
+	:param template_name: If you want to add a custom template to this page.
+	:type template_name: string
 	"""
+	
 	post_list = Post.objects.published()
 	paginator = Paginator(post_list, 20)
 	
@@ -52,12 +53,12 @@ def detail(request, post_pk, context={}, template_name='tumblelog/detail.html'):
 	"""
 	The Tumblelog Post detail page.
 	
-	context
-		Any extra context you wish to add to this page.
-	
-	template_name
-		If you want to add a custom template to this page.
+	:param context: Any extra context you wish to add to this page.
+	:type context: dict
+	:param template_name: If you want to add a custom template to this page.
+	:type template_name: string
 	"""
+	
 	try:
 		post = Post.objects.get(pk=post_pk)
 	except Post.DoesNotExist:
@@ -75,15 +76,16 @@ def archive(request, year=str(datetime.date.today().year),
 	"""
 	The Tumblelog Post archive page.
 	
-	year and month
-		The year and month you want to filter.
-	
-	context
-		Any extra context you wish to add to this page.
-	
-	template_name
-		If you want to add a custom template to this page.
+	:param year: The year you want to filter.
+	:type year: string
+	:param month: The month you want to filter.
+	:type month: string
+	:param context: Any extra context you wish to add to this page.
+	:type context: dict
+	:param template_name: If you want to add a custom template to this page.
+	:type template_name: string
 	"""
+	
 	try:
 		date = datetime.date(*time.strptime(year+month, '%Y%b')[:3])
 	except ValueError:
