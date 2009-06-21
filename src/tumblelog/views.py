@@ -49,7 +49,8 @@ def index(request, page=1, context={}, template_name='tumblelog/index.html'):
 	
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
 
-def detail(request, post_pk, context={}, template_name='tumblelog/detail.html'):
+def detail(request, post_pk, context={},
+	template_name='tumblelog/detail.html'):
 	"""
 	The Tumblelog Post detail page.
 	

@@ -22,11 +22,14 @@ from tumblelog.models import Post
 
 logger = logging.getLogger("tumblelog.signals")
 
-def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None, **kwargs):
+def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None,
+	**kwargs):
 	"""This is a generic singal for adding an object to the Tumblelog.
 	"""
 	ctype = ContentType.objects.get_for_model(instance)
-	obj, created = Post.objects.get_or_create(content_type=ctype, object_id=instance.id)
+	obj, created = Post.objects.get_or_create(
+		content_type=ctype,
+		object_id=instance.id)
 	
 	if user:
 		obj.author = user
@@ -45,8 +48,8 @@ def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None, 
 	obj.save()
 
 def delete_tumblelog_signal(sender, instance, **kwargs):
-	"""This is a generic singal for deleting a Tumblelog entry when an object is
-	deleted.
+	"""This is a generic singal for deleting a Tumblelog entry when an object
+	is deleted.
 	
 	"""
 	ctype = ContentType.objects.get_for_model(instance)
@@ -55,7 +58,8 @@ def delete_tumblelog_signal(sender, instance, **kwargs):
 		post.delete()
 	except Post.MultipleObjectsReturned:
 		posts = Item.objects.filter(content_type=ctype, object_id=instance.id)
-		# TODO Need to implement in case there are mutiple items in the Database.
+		for post in posts:
+			post.delete()
 	except Item.DoesNotExist:
 		pass
 
