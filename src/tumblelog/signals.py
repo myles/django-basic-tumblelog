@@ -22,7 +22,7 @@ from tumblelog.models import Post
 
 logger = logging.getLogger("tumblelog.signals")
 
-def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None **kwargs):
+def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None, **kwargs):
 	ctype = ContentType.objects.get_for_model(instance)
 	obj, created = Post.objects.get_or_create(content_type=ctype, object_id=instance.id)
 	
