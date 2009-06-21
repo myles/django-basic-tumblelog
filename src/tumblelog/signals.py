@@ -23,6 +23,8 @@ from tumblelog.models import Post
 logger = logging.getLogger("tumblelog.signals")
 
 def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None, **kwargs):
+	"""This is a generic singal for adding an object to the Tumblelog.
+	"""
 	ctype = ContentType.objects.get_for_model(instance)
 	obj, created = Post.objects.get_or_create(content_type=ctype, object_id=instance.id)
 	
@@ -43,6 +45,10 @@ def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None, 
 	obj.save()
 
 def delete_tumblelog_signal(sender, instance, **kwargs):
+	"""This is a generic singal for deleting a Tumblelog entry when an object is
+	deleted.
+	
+	"""
 	ctype = ContentType.objects.get_for_model(instance)
 	try:
 		post = Post.objects.get(content_type=ctype, object_id=instance.id)
@@ -54,4 +60,7 @@ def delete_tumblelog_signal(sender, instance, **kwargs):
 		pass
 
 def delete_tumblelog_childern_signal(sender, instance, **kwargs):
+	"""This is a generic singal for deleting am object when a Tumblelog Entry
+	is deleted.
+	"""
 	instance.content_object.delete()

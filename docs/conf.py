@@ -16,7 +16,9 @@ import sys, os
 # If your extensions are in another directory, add it here. If the directory
 # is relative to the documentation root, use os.path.abspath to make it
 # absolute, like shown here.
-#sys.path.append(os.path.abspath('some/directory'))
+sys.path.append(os.path.abspath('../src/'))
+sys.path.append(os.path.abspath('../parts/django'))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tumblelog.testsettings'
 
 # General configuration
 # ---------------------
@@ -42,9 +44,9 @@ copyright = '2009, Myles Braithwaite'
 # other places throughout the built documents.
 #
 # The short X.Y version.
-version = '0.5'
+version = '0.6.1'
 # The full version, including alpha/beta/rc tags.
-release = '0.5 beta'
+release = '0.6.1'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:

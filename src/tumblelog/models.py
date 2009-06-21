@@ -24,7 +24,15 @@ from django.contrib.contenttypes import generic
 from tumblelog.managers import PostManager
 
 class Post(models.Model):
-	""" Item model """
+	"""Tumblelog Post model.
+	
+	:param content_object: A link to the tumblelog object.
+	:param title: Cache the title of the object.
+	:param author: Cache the author of the object.
+	:param publish: Cache the object's Published date.
+	:param created: When the tumblelog entry was created.
+	:param modified: When the tumblelog entry was modified.
+	"""
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
 	content_object = generic.GenericForeignKey()
