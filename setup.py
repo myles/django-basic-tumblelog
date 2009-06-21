@@ -10,7 +10,7 @@ setup(
 	url = 'http://myles.github.com/django-basic-tumblelog/',
 	license = 'Apache 2.0',
 	description = "A basic tumblelog application you can add to your Django website.",
-	long_description = read('README'),
+	long_description = read('README.rst'),
 	
 	author = 'Myles Braithwaite',
 	author_email = 'me@mylesbraithwaite.com',
