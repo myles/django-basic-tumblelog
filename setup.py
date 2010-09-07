@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
 	name = "django-basic-tumblelog",
-	version = "0.6.1",
+	version = "0.6.2",
 	url = 'http://myles.github.com/django-basic-tumblelog/',
 	license = 'Apache 2.0',
 	description = "A basic tumblelog application you can add to your Django website.",
