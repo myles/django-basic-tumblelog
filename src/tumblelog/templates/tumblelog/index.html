@@ -17,9 +17,9 @@
 	{% if posts.has_other_pages %}
 	<div id="pagination">
 		<p>
-			{% if has_previous %}<a href="{% url tumblelog_index_paginated previous_page_number %}" title="{% trans "Page" %} {{ previous_page_number }}">{% trans "Previous" %}</a>{% endif %}
-			{% if has_previous and has_next %}-{% endif %}
-			{% if has_next %}<a href="{% url tumblelog_index_paginated next_page_number %}" title="{% trans "Page" %} {{ next_page_number }}">{% trans "Next" %}</a>{% endif %}
+			{% if posts.has_previous %}<a href="{% url tumblelog_index_paginated posts.previous_page_number %}" title="{% trans "Page" %} {{ posts.previous_page_number }}">{% trans "Previous" %}</a>{% endif %}
+			{% if posts.has_previous and posts.has_next %}-{% endif %}
+			{% if posts.has_next %}<a href="{% url tumblelog_index_paginated posts.next_page_number %}" title="{% trans "Page" %} {{ posts.next_page_number }}">{% trans "Next" %}</a>{% endif %}
 		</p>
 	</div>
 	{% endif %}
