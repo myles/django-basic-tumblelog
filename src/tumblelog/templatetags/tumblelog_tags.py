@@ -25,7 +25,7 @@ def render_item(item, template=None):
 	model_name = item._meta.verbose_name_raw
 	
 	try:
-		if tempalte:
+		if template:
 			t = get_template(template)
 		else:
 			t = get_template('%(app)s/tumblelog/%(model)s.html' % {
