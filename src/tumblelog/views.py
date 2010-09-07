@@ -24,7 +24,7 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 from tumblelog.models import Post
 
-def index(request, page=1, context={}, template_name='tumblelog/index.html'):
+def index(request, page=1, paginate_by=None, context={}, template_name='tumblelog/index.html'):
 	"""
 	The Tumblelog index page.
 	
@@ -35,13 +35,15 @@ def index(request, page=1, context={}, template_name='tumblelog/index.html'):
 	:type template_name: string
 	"""
 	
-	post_list = Post.objects.published()
-	paginator = Paginator(post_list, 20)
+	posts = Post.objects.published()
 	
-	try:
-		posts = paginator.page(page)
-	except (EmptyPage, InvalidPage):
-		posts = paginator.page(paginator.num_pages)
+	if paginate_by:
+		paginator = Paginator(posts, paginate_by)
+
+		try:
+			posts = paginator.page(page)
+		except (EmptyPage, InvalidPage):
+			posts = paginator.page(paginator.num_pages)
 	
 	context.update({
 		'posts': posts,

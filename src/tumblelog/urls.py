@@ -16,6 +16,10 @@ limitations under the License.
 
 from django.conf.urls.defaults import *
 
+info_dict = { 
+    'paginate_by': 20,
+}
+
 urlpatterns = patterns('tumblelog.views',
 	url(r'^post/(?P<obj_pk>\d+)/$',
 		view = 'detail',
@@ -38,10 +42,12 @@ urlpatterns = patterns('tumblelog.views',
 		
 	url(r'^page/(?P<page>\w)/$',
 		view = 'index',
+		kwargs = info_dict,
 		name = 'tumblelog_index_paginated',
 	),
 	url(r'^$',
 		view = 'index',
+		kwargs = info_dict,
 		name = 'tumblelog_index',
 	),
 )
