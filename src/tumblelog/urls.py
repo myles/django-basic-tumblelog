@@ -21,7 +21,7 @@ info_dict = {
 }
 
 urlpatterns = patterns('tumblelog.views',
-	url(r'^post/(?P<obj_pk>\d+)/$',
+	url(r'^post/(?P<post_pk>\d+)/$',
 		view = 'detail',
 		name = 'tumblelog_detail',
 	),
