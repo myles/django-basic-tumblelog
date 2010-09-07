@@ -29,7 +29,7 @@ class PostManager(Manager):
 		"""Retrun a QuerySet of published entries.
 		"""
 		return self.get_query_set().filter(
-			published__lte=datetime.datetime.now()
+			publish__lte=datetime.datetime.now()
 		)
 	
 	def get_for_model(self, model):
