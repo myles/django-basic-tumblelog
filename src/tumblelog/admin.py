@@ -20,6 +20,6 @@ from tumblelog.models import Post
 
 class PostAdmin(admin.ModelAdmin):
 	list_display = ('__unicode__',)
-	date_hierarchy = 'published'
+	date_hierarchy = 'publish'
 
 admin.site.register(Post, PostAdmin)
