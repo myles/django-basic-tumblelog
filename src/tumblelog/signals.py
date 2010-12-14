@@ -30,7 +30,7 @@ def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None,
 	obj, created = Post.objects.get_or_create(
 		content_type=ctype,
 		object_id=instance.id,
-        publish=datetime.datetime.now())
+        defaults={'publish': datetime.datetime.now() })
 
 	if user:
 		obj.author = user
