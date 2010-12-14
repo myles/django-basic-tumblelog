@@ -29,38 +29,37 @@ def add_tumblelog_signal(sender, instance, user=None, publish=None, title=None,
 	ctype = ContentType.objects.get_for_model(instance)
 	obj, created = Post.objects.get_or_create(
 		content_type=ctype,
-		object_id=instance.id)
-	
+		object_id=instance.id,
+        publish=datetime.datetime.now())
+
 	if user:
 		obj.author = user
-	
+
 	if title:
 		obj.title = title
 	else:
 		# TODO Add something to truncate after 200 characters.
 		obj.title = instance.__unicode__()
-	
+
 	if publish:
 		obj.publish = publish
-	else:
-		obj.publish = datetime.datetime.now()
-	
+
 	obj.save()
 
 def delete_tumblelog_signal(sender, instance, **kwargs):
 	"""This is a generic singal for deleting a Tumblelog entry when an object
 	is deleted.
-	
+
 	"""
 	ctype = ContentType.objects.get_for_model(instance)
 	try:
 		post = Post.objects.get(content_type=ctype, object_id=instance.id)
 		post.delete()
 	except Post.MultipleObjectsReturned:
-		posts = Item.objects.filter(content_type=ctype, object_id=instance.id)
+		posts = Post.objects.filter(content_type=ctype, object_id=instance.id)
 		for post in posts:
 			post.delete()
-	except Item.DoesNotExist:
+	except Post.DoesNotExist:
 		pass
 
 def delete_tumblelog_childern_signal(sender, instance, **kwargs):

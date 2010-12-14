@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,29 +16,28 @@ limitations under the License.
 
 from django.contrib.contenttypes.models import ContentType
 from django import template
-from django.template.loader import get_template, TemplateDoesNotExist
+from django.conf import settings
+from django.template.loader import select_template
 
 register = template.Library()
 
-def render_item(item, template=None):
-	app_label = item._meta.app_label
-	model_name = item._meta.verbose_name_raw
-	
-	try:
-		if template:
-			t = get_template(template)
-		else:
-			t = get_template('%(app)s/tumblelog/%(model)s.html' % {
-				'app': app_label,
-				'model': model_name,
-			})
-	except TemplateDoesNotExist:
-		t = get_template('tumblelog/default.html')
-	
-	return t.render(template.Context({
-		'item' : item.content_object,
-		'itemid' : item.id,
-		'itemclass' : content_type
-	}))
+def render_item(item, template_name=None):
+    model_name = item.content_object._meta.verbose_name_raw
+
+    template_list = [template_name,] if template_name else []
+    template_list.extend([
+        'tumblelog/includes/%(model)s.html' % {'model': model_name },
+        'tumblelog/includes/default.html'
+    ])
+
+    t = select_template(template_list)
+
+    return t.render(template.Context({
+        'object' : item.content_object,
+        'object_id' : item.id,
+        'content_type' : item.content_type,
+        'item': item,
+        'MEDIA_URL': settings.MEDIA_URL
+    }))
 
 register.filter('render_item', render_item)

@@ -16,7 +16,7 @@ limitations under the License.
 
 from django.conf.urls.defaults import *
 
-info_dict = { 
+info_dict = {
     'paginate_by': 20,
 }
 
@@ -26,7 +26,7 @@ urlpatterns = patterns('tumblelog.views',
 		name = 'tumblelog_detail',
 	),
 	# TODO Add a redirect for post/ to tumblelog_index.
-	
+
 	url(r'^archive/(?P<year>\d{4})/(?P<month>[a-z]{3})/$',
 		view = 'archive',
 		name = 'tumblelog_archive_month'
@@ -39,7 +39,7 @@ urlpatterns = patterns('tumblelog.views',
 		view = 'archive',
 		name = 'tumblelog_archive_index'
 	),
-		
+
 	url(r'^page/(?P<page>\w)/$',
 		view = 'index',
 		kwargs = info_dict,

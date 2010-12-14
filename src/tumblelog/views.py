@@ -27,16 +27,16 @@ from tumblelog.models import Post
 def index(request, page=1, paginate_by=None, context={}, template_name='tumblelog/index.html'):
 	"""
 	The Tumblelog index page.
-	
+
 	:type page: int
 	:param context: Any extra context you wish to add to this page.
 	:type context: dict
 	:param template_name: If you want to add a custom template to this page.
 	:type template_name: string
 	"""
-	
+
 	posts = Post.objects.published()
-	
+
 	if paginate_by:
 		paginator = Paginator(posts, paginate_by)
 
@@ -44,33 +44,33 @@ def index(request, page=1, paginate_by=None, context={}, template_name='tumblelo
 			posts = paginator.page(page)
 		except (EmptyPage, InvalidPage):
 			posts = paginator.page(paginator.num_pages)
-	
+
 	context.update({
 		'posts': posts,
 	})
-	
+
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
 
 def detail(request, post_pk, context={},
 	template_name='tumblelog/detail.html'):
 	"""
 	The Tumblelog Post detail page.
-	
+
 	:param context: Any extra context you wish to add to this page.
 	:type context: dict
 	:param template_name: If you want to add a custom template to this page.
 	:type template_name: string
 	"""
-	
+
 	try:
 		post = Post.objects.get(pk=post_pk)
 	except Post.DoesNotExist:
 		raise Http404
-	
+
 	context.update({
 		'post': post,
 	})
-	
+
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
 
 def archive(request, year=str(datetime.date.today().year),
@@ -78,7 +78,7 @@ def archive(request, year=str(datetime.date.today().year),
 	template_name='tumblelog/archive.html'):
 	"""
 	The Tumblelog Post archive page.
-	
+
 	:param year: The year you want to filter.
 	:type year: string
 	:param month: The month you want to filter.
@@ -88,18 +88,50 @@ def archive(request, year=str(datetime.date.today().year),
 	:param template_name: If you want to add a custom template to this page.
 	:type template_name: string
 	"""
-	
+
 	try:
 		date = datetime.date(*time.strptime(year+month, '%Y%b')[:3])
 	except ValueError:
 		raise Http404
-	
+
 	posts = Post.objects.filter(publish__month=date.month,
 		publish__year=date.year)
-	
+
 	context.update({
 		'posts': posts,
 		'date': date,
 	})
-	
+
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
+
+def tagged_list(request, tags, page=1, paginate_by=None, context={}, template_name='tumblelog/tagged_list.html'):
+    """
+    The Tumblelog Tagged Posts page.
+
+    :param tags: The selected tags.
+    :type tags: string
+    :type page: int
+    :param context: Any extra context you wish to add to this page.
+    :type context: dict
+    :param template_name: If you want to add a custom template to this page.
+    :type template_name: string
+    """
+    tag_list = tags.split('+')
+    posts = Post.objects.published().filter(tags__slug__in=tag_list)
+
+    if paginate_by:
+        paginator = Paginator(posts, paginate_by)
+
+        try:
+            posts = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            posts = paginator.page(paginator.num_pages)
+
+    context.update({
+        'posts': posts,
+        'tag_list': tag_list,
+    })
+
+    return render_to_response(template_name, context, context_instance=RequestContext(request))
+
+
