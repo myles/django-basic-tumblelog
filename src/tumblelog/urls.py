@@ -15,9 +15,10 @@ limitations under the License.
 """
 
 from django.conf.urls.defaults import *
+from django.conf import settings
 
 info_dict = {
-    'paginate_by': 20,
+    'paginate_by': getattr(settings, 'TUMBLELOG_PAGINATE_BY', 20),
 }
 
 urlpatterns = patterns('tumblelog.views',

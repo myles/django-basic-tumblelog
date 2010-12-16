@@ -103,35 +103,3 @@ def archive(request, year=str(datetime.date.today().year),
 	})
 
 	return render_to_response(template_name, context, context_instance=RequestContext(request))
-
-def tagged_list(request, tags, page=1, paginate_by=None, context={}, template_name='tumblelog/tagged_list.html'):
-    """
-    The Tumblelog Tagged Posts page.
-
-    :param tags: The selected tags.
-    :type tags: string
-    :type page: int
-    :param context: Any extra context you wish to add to this page.
-    :type context: dict
-    :param template_name: If you want to add a custom template to this page.
-    :type template_name: string
-    """
-    tag_list = tags.split('+')
-    posts = Post.objects.published().filter(tags__slug__in=tag_list)
-
-    if paginate_by:
-        paginator = Paginator(posts, paginate_by)
-
-        try:
-            posts = paginator.page(page)
-        except (EmptyPage, InvalidPage):
-            posts = paginator.page(paginator.num_pages)
-
-    context.update({
-        'posts': posts,
-        'tag_list': tag_list,
-    })
-
-    return render_to_response(template_name, context, context_instance=RequestContext(request))
-
-
