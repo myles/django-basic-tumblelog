@@ -23,8 +23,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 from tumblelog.models import Post
+from tumblelog.settings import TUMBLELOG_PAGINATE_BY
 
-def index(request, page=1, paginate_by=None, context={}, template_name='tumblelog/index.html'):
+def index(request, page=1, context={}, template_name='tumblelog/index.html'):
 	"""
 	The Tumblelog index page.
 
@@ -38,7 +39,7 @@ def index(request, page=1, paginate_by=None, context={}, template_name='tumblelo
 	posts = Post.objects.published()
 
 	if paginate_by:
-		paginator = Paginator(posts, paginate_by)
+		paginator = Paginator(posts, TUMBLELOG_PAGINATE_BY)
 
 		try:
 			posts = paginator.page(page)

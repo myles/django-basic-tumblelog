@@ -15,11 +15,6 @@ limitations under the License.
 """
 
 from django.conf.urls.defaults import *
-from django.conf import settings
-
-info_dict = {
-    'paginate_by': getattr(settings, 'TUMBLELOG_PAGINATE_BY', 20),
-}
 
 urlpatterns = patterns('tumblelog.views',
 	url(r'^post/(?P<post_pk>\d+)/$',
@@ -48,7 +43,6 @@ urlpatterns = patterns('tumblelog.views',
 	),
 	url(r'^$',
 		view = 'index',
-		kwargs = info_dict,
 		name = 'tumblelog_index',
 	),
 )
