@@ -62,5 +62,5 @@ class Post(models.Model):
 	@permalink
 	def get_absolute_url(self):
 		return ('tumblelog_detail', None, {
-			'obj_pk' : self.pk,
+			'post_pk' : self.pk,
 		})
