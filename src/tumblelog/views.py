@@ -38,7 +38,7 @@ def index(request, page=1, context={}, template_name='tumblelog/index.html'):
 
 	posts = Post.objects.published()
 
-	if paginate_by:
+	if TUMBLELOG_PAGINATE_BY:
 		paginator = Paginator(posts, TUMBLELOG_PAGINATE_BY)
 
 		try:
